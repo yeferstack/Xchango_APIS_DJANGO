@@ -1,4 +1,4 @@
-#Xchango API — Módulo Sistema
+Xchango API — Módulo Sistema
 
 API REST CRUD para el módulo de administración del sistema **Xchango**, desarrollada en **Django 6 + Django REST Framework + PostgreSQL**.
 
