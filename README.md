@@ -97,6 +97,106 @@ Base URL: `http://127.0.0.1:9000/api/`
 
 
 
+# API REST - Transacciones y Comunicaciones
+API CRUD desarrollada con Django REST Framework para la gestión del esquema `Transacciones_comunicaciones` en la base de datos `Xchango_db`.
+
+---
+
+## Tecnologías utilizadas
+- Python 3.12
+- Django 6.0
+- Django REST Framework
+- PostgreSQL
+- psycopg2
+- python-decouple
+
+---
+
+## Estructura del proyecto
+```
+transacciones_comunicaciones/
+├── .env
+├── .gitignore
+├── manage.py
+├── run.py
+├── backend/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+└── api/
+    ├── models.py
+    ├── serializers.py
+    ├── views.py
+    ├── urls.py
+    ├── admin.py
+    └── migrations/
+```
+
+---
+
+## Base de datos
+- **Base de datos:** `Xchango_db`
+- **Esquema:** `Transacciones_comunicaciones`
+
+### Tablas
+
+| Tabla | Descripción |
+|---|---|
+| `Transaccion` | Registro principal de cada transacción (monto, tipo, estado, fecha) |
+| `Pago` | Detalle de pagos asociados a una transacción (método, referencia, estado) |
+| `Factura` | Comprobante generado por una transacción completada |
+| `Mensaje` | Mensajes intercambiados entre usuarios dentro de la plataforma |
+| `Notificacion` | Notificaciones del sistema enviadas a los usuarios |
+| `Disputa` | Registro de disputas o reclamos sobre una transacción |
+| `EstadoTransaccion` | Historial de cambios de estado de una transacción |
+| `Adjunto` | Archivos o documentos adjuntos a mensajes o disputas |
+
+---
+
+## Instalación y ejecución
+
+```bash
+# 1. Activar el entorno virtual
+venv\Scripts\activate
+
+# 2. Instalar dependencias
+pip install django djangorestframework drf-yasg psycopg2-binary python-decouple
+
+# 3. Aplicar migraciones
+python manage.py migrate
+
+# 4. Correr el servidor
+python run.py
+```
+
+---
+
+## Endpoints disponibles
+
+Base URL: `http://127.0.0.1:9000/api/`
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| GET / POST | `/api/transacciones/` | Listar o crear transacciones |
+| GET / PUT / DELETE | `/api/transacciones/{id}/` | Detalle, editar o eliminar una transacción |
+| GET / POST | `/api/pagos/` | Listar o crear pagos |
+| GET / PUT / DELETE | `/api/pagos/{id}/` | Detalle, editar o eliminar un pago |
+| GET / POST | `/api/facturas/` | Listar o crear facturas |
+| GET / PUT / DELETE | `/api/facturas/{id}/` | Detalle, editar o eliminar una factura |
+| GET / POST | `/api/mensajes/` | Listar o crear mensajes |
+| GET / PUT / DELETE | `/api/mensajes/{id}/` | Detalle, editar o eliminar un mensaje |
+| GET / POST | `/api/notificaciones/` | Listar o crear notificaciones |
+| GET / PUT / DELETE | `/api/notificaciones/{id}/` | Detalle, editar o eliminar una notificación |
+| GET / POST | `/api/disputas/` | Listar o crear disputas |
+| GET / PUT / DELETE | `/api/disputas/{id}/` | Detalle, editar o eliminar una disputa |
+| GET / POST | `/api/estados-transaccion/` | Listar o crear estados de transacción |
+| GET / PUT / DELETE | `/api/estados-transaccion/{id}/` | Detalle, editar o eliminar un estado |
+| GET / POST | `/api/adjuntos/` | Listar o crear adjuntos |
+| GET / PUT / DELETE | `/api/adjuntos/{id}/` | Detalle, editar o eliminar un adjunto |
+
+
+
 # Xchango API — Módulo Publicaciones
 
 API REST CRUD para el módulo de publicaciones del sistema **Xchango**, desarrollada en **Django 6 + Django REST Framework + PostgreSQL**.
